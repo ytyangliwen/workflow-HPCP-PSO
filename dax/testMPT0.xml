@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- LEAD Data Mining workflow (Figure 3 in Ramakrishnan and Gannon) -->
+<adag name="testMPT" jobCount="11">
+	<job id="t0" namespace="testMPT" name="t0" runtime="35" cores="1">
+		<uses file="sd_in2.dat" link="input" size="2097152"/>
+		<uses file="sd_in1.dat" link="input" size="1024"/>
+		<uses file="sd_out2.dat" link="output" size="1024"/>
+		<uses file="sd_out1.dat" link="output" size="4096"/>
+	</job>
+	<job id="t1" namespace="testMPT" name="RemoveAttributes" runtime="66" cores="1">
+		<uses file="sd_out2.dat" link="input" size="1024"/>
+		<uses file="ra_out1.dat" link="output" size="1024"/>
+	</job>
+	<job id="t2" namespace="testMPT" name="SpatialClustering" runtime="129" cores="1">
+		<uses file="ra_out1.dat" link="input" size="1024"/>
+		<uses file="sc_out1.dat" link="output" size="5120"/>
+		<uses file="sc_out2.dat" link="output" size="9216"/>
+	</job>
+	<job id="t3" namespace="testMPT" name="t0" runtime="35" cores="1">
+		<uses file="sd_in2.dat" link="input" size="2097152"/>
+		<uses file="sd_in1.dat" link="input" size="1024"/>
+		<uses file="sd_out2.dat" link="output" size="1024"/>
+		<uses file="sd_out1.dat" link="output" size="4096"/>
+	</job>
+	<job id="t4" namespace="testMPT" name="RemoveAttributes" runtime="66" cores="1">
+		<uses file="sd_out2.dat" link="input" size="1024"/>
+		<uses file="ra_out1.dat" link="output" size="1024"/>
+	</job>
+	<job id="t5" namespace="testMPT" name="SpatialClustering" runtime="129" cores="1">
+		<uses file="ra_out1.dat" link="input" size="1024"/>
+		<uses file="sc_out1.dat" link="output" size="5120"/>
+		<uses file="sc_out2.dat" link="output" size="9216"/>
+	</job>
+	<job id="t6" namespace="testMPT" name="t0" runtime="35" cores="1">
+		<uses file="sd_in2.dat" link="input" size="2097152"/>
+		<uses file="sd_in1.dat" link="input" size="1024"/>
+		<uses file="sd_out2.dat" link="output" size="1024"/>
+		<uses file="sd_out1.dat" link="output" size="4096"/>
+	</job>
+	<job id="t7" namespace="testMPT" name="RemoveAttributes" runtime="66" cores="1">
+		<uses file="sd_out2.dat" link="input" size="1024"/>
+		<uses file="ra_out1.dat" link="output" size="1024"/>
+	</job>
+	<job id="t8" namespace="testMPT" name="SpatialClustering" runtime="129" cores="1">
+		<uses file="ra_out1.dat" link="input" size="1024"/>
+		<uses file="sc_out1.dat" link="output" size="5120"/>
+		<uses file="sc_out2.dat" link="output" size="9216"/>
+	</job>
+	<job id="t9" namespace="testMPT" name="t0" runtime="35" cores="1">
+		<uses file="sd_in2.dat" link="input" size="2097152"/>
+		<uses file="sd_in1.dat" link="input" size="1024"/>
+		<uses file="sd_out2.dat" link="output" size="1024"/>
+		<uses file="sd_out1.dat" link="output" size="4096"/>
+	</job>
+	<job id="t10" namespace="testMPT" name="RemoveAttributes" runtime="66" cores="1">
+		<uses file="sd_out2.dat" link="input" size="1024"/>
+		<uses file="ra_out1.dat" link="output" size="1024"/>
+	</job>
+		
+	<child ref="t1">
+		<parent ref="t0"/>
+	</child>
+	<child ref="t2">
+		<parent ref="t0"/>
+	</child>
+	<child ref="t3">
+		<parent ref="t0"/>
+	</child>
+	<child ref="t4">
+		<parent ref="t1"/>
+	</child>
+	<child ref="t5">
+		<parent ref="t1"/>
+	</child>
+	<child ref="t6">
+		<parent ref="t3"/>
+	</child>
+	<child ref="t7">
+		<parent ref="t4"/>
+		<parent ref="t5"/>
+	</child>
+	<child ref="t8">
+		<parent ref="t4"/>
+		<parent ref="t7"/>
+	</child>
+	<child ref="t9">
+		<parent ref="t5"/>
+	</child>
+	<child ref="t10">
+		<parent ref="t5"/>
+	</child>	
+</adag>

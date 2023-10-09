@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MEME-MAST bioinformatics workflow (Figure 9 in Ramakrishnan and Gannon) -->
+<adag name="mememast" jobCount="2" fileCount="0" childCount="1">
+	<job id="mast" namespace="mememast" name="MAST" runtime="60" cores="1">
+		<uses file="meme_out.dat" link="input" size="153600"/>
+		<uses file="mast_out.dat" link="output" size="204800"/>
+	</job>
+	<job id="meme" namespace="mememast" name="MEME" runtime="60" cores="1">
+		<uses file="meme_in.dat" link="input" size="102400"/>
+		<uses file="meme_out.dat" link="output" size="153600"/>
+	</job>
+	<child ref="mast">
+		<parent ref="meme"/>
+	</child>
+</adag>

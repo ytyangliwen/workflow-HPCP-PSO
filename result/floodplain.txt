@@ -1,0 +1,14 @@
+used methods: PCPandPSO2_4	PCPandPSO2_2	
+
+success ratio
+0.050	1.000	1.000	
+
+
+
+normalized cost
+0.050	1.642	1.681	
+
+
+
+reference values (CF, MF, CC, MC)
+12.0	23400.0	5.3999999999999995	160200.0	
